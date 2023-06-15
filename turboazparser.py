@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as BS
 from urllib.parse import urlparse
 import datetime, time
 
+#
 class TurboAz:
     host = 'https://ru.turbo.az'
     url = 'https://ru.turbo.az/autos'
