@@ -1,6 +1,6 @@
 db.db
 config.py
 __pycache__
-logs/
-images/
+logs/*
+images/*
 venv

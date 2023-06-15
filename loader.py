@@ -5,6 +5,9 @@ import logging
 from turboazparser import TurboAz
 from sqllight import SQLighter
 import requests
+import os
+
+current_directory = os.getcwd()
 
 # задаем уровень логов
 logging.basicConfig(level=logging.INFO)
@@ -12,7 +15,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s;%(levelname)s;%(message)s",
                               "%Y-%m-%d %H:%M:%S")
-fh = logging.FileHandler('/home/ruslan/TeleBot/TelegramBot/logs/ExceptParserLog.log')
+fh = logging.FileHandler(current_directory+'/logs/ExceptParserLog.log')
 fh.setFormatter(formatter)
 fh.setLevel(logging.INFO) # or any level you want
 logger.addHandler(fh)
@@ -20,9 +23,9 @@ logger.addHandler(fh)
 # задаем уровень логов
 logging.basicConfig(level=logging.INFO)
 # инициализируем соединение с БД
-db = SQLighter('/home/ruslan/TeleBot/TelegramBot/db.db')
+db = SQLighter(current_directory+'/db.db')
 # инициализируем парсер
-parser = TurboAz('/home/ruslan/TeleBot/TelegramBot/lastkeyturboaz.txt')
+parser = TurboAz(current_directory+'/lastkeyturboaz.txt')
 
 bot = Bot(token=config.BOT_TOKEN, parse_mode="HTML")
 dp = Dispatcher(bot)

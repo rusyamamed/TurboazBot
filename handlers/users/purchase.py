@@ -12,13 +12,17 @@ from keyboards.callback_datas import select_callback
 import logging
 from aiogram import types
 from turboazparser import TurboAz
+import os
+
+current_directory = os.getcwd()
+
 # задаем уровень логов
 #logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s;%(levelname)s;%(message)s",
                               "%Y-%m-%d %H:%M:%S")
-fh = logging.FileHandler('/home/ruslan/TeleBot/TelegramBot/logs/TurboBotLog.log')
+fh = logging.FileHandler(current_directory+'/logs/TurboBotLog.log')
 fh.setFormatter(formatter)
 fh.setLevel(logging.INFO) # or any level you want
 logger.addHandler(fh)
