@@ -8,6 +8,9 @@ import requests
 import os
 
 current_directory = os.getcwd()
+log_folder = 'logs'
+if not os.path.exists(log_folder):
+    os.makedirs(log_folder)
 
 # задаем уровень логов
 logging.basicConfig(level=logging.INFO)
@@ -15,7 +18,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s;%(levelname)s;%(message)s",
                               "%Y-%m-%d %H:%M:%S")
-fh = logging.FileHandler(current_directory+'/logs/ExceptParserLog.log')
+fh = logging.FileHandler(current_directory+'/'+log_folder+'/ExceptParserLog.log')
 fh.setFormatter(formatter)
 fh.setLevel(logging.INFO) # or any level you want
 logger.addHandler(fh)

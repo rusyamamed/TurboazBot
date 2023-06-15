@@ -3,7 +3,11 @@ import requests
 from bs4 import BeautifulSoup as BS
 from urllib.parse import urlparse
 import datetime, time
+current_directory = os.getcwd()
 
+images_folder = 'images'
+if not os.path.exists(images_folder):
+    os.makedirs(images_folder)
 #
 class TurboAz:
     host = 'https://ru.turbo.az'
@@ -68,7 +72,7 @@ class TurboAz:
         r = requests.get(url, allow_redirects=True)
         a = urlparse(url)
         filename = os.path.basename(a.path)
-        fullpath = f'/home/ruslan/TeleBot/TelegramBot/images/{filename}'
+        fullpath = f'{current_directory}/{images_folder}/{filename}'
 #         basename = os.path.basename(fullpath)
 #         print(filename)
 #         print(os.path.basename)
