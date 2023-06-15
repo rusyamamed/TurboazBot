@@ -1,0 +1,5 @@
+db.db
+config.py
+__pycache__
+logs/
+images/
